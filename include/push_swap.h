@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/02/28 14:02:05 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/18 16:39:10 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,39 @@
 
 # include "../libft/libft.h"
 
-
-
 /* STRUCTS */
-typedef struct stackbox_t /* stacks' contents and their indexes */
+typedef struct s_stackbox
 {
-	int *elements;
-	int count;
-} sbox_t;
+	int	*nbrs;
+	int	total;
+}		t_stackbox;
 
-typedef struct stacks_t
+typedef struct s_pile
 {
-	struct sbox_t *stack_a;
-	struct sbox_t *stack_b;
-	struct sbox_t *stack_c; /* substack created to process input and guide sorting */
-} stack_t;
+	t_stackbox	a;
+	t_stackbox	b;
+	t_stackbox	c;
+}		t_pile;
 
 /* PROTOTYPES */
 
-/* main.c */
-int main (int argc, char **argv);
-// int is_sorted();
-// void 	check_dup();
+/* push_swap.c */
+void	input_parse(int argc, char **argv, t_pile *stack);
+/* to add: is_sorted, small_sort, big_sort, radix */
+
+/* validate.c */
+int		input_check(int argc, char **argv);
+int		is_strargv_valid(char **argv);
+int		is_int_valid(char *str);
+void	free_table(char **table);
+
+/* input_parse.c */
+int		total_str_count(char **table);
+void	strargv_to_intarray(char **table, t_stackbox *data, int count);
+void	fill_stackbox(int argc, char **argv, t_stackbox *data);
+
 void	error(void);
-stack_t *initialize stacks(void);
 
-
-void	sort_array(int *array, int n);
-float	find_median(int *array, int n);
-
+/* Push_swap Commands */
 
 #endif
