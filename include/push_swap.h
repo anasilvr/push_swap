@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/18 16:39:10 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/19 13:07:06 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,24 @@
 # include "../libft/libft.h"
 
 /* STRUCTS */
-typedef struct s_stackbox
+typedef struct s_stack
 {
 	int	*nbrs;
 	int	total;
-}		t_stackbox;
+}		t_stack;
 
-typedef struct s_pile
+typedef struct s_pushswap
 {
-	t_stackbox	a;
-	t_stackbox	b;
-	t_stackbox	c;
-}		t_pile;
+	t_stack	a;
+	t_stack	b;
+	t_stack	c;
+}		t_pushswap;
 
 /* PROTOTYPES */
 
 /* push_swap.c */
-void	input_parse(int argc, char **argv, t_pile *stack);
+void	input_parse(int argc, char **argv, t_pushswap *piles);
+void	init_stacks(t_pushswap *piles, int count);
 /* to add: is_sorted, small_sort, big_sort, radix */
 
 /* validate.c */
@@ -42,9 +43,9 @@ int		is_int_valid(char *str);
 void	free_table(char **table);
 
 /* input_parse.c */
-int		total_str_count(char **table);
-void	strargv_to_intarray(char **table, t_stackbox *data, int count);
-void	fill_stackbox(int argc, char **argv, t_stackbox *data);
+int		elements_count(char **table);
+void	strargv_to_intarray(char **table, t_stack *data, int count);
+void	fill_stack(char **numbers, int count, t_stack *pile, int option);
 
 void	error(void);
 

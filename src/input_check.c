@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/18 17:20:54 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/19 12:20:45 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,10 @@ void	free_table(char **table)
 		i++;
 	}
 	free(table);
+}
+
+void	error(void)
+{
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }
