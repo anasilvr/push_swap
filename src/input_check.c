@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
+/*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 12:20:45 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:11:38 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,23 +103,4 @@ int	is_int_valid(char *str)
 		i++;
 	}
 	return (1);
-}
-
-void	free_table(char **table)
-{
-	int	i;
-
-	i = 0;
-	while (table[i])
-	{
-		free(table[i]);
-		i++;
-	}
-	free(table);
-}
-
-void	error(void)
-{
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 #    By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/11 14:47:57 by anarodri          #+#    #+#              #
-#    Updated: 2022/05/19 12:23:04 by anarodri         ###   ########.fr        #
+#    Updated: 2022/05/19 14:19:16 by anarodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = push_swap
 COMP	=	gcc -Wall -Wextra -Werror -g
 RM		=	rm -f
 
-SRC		=	$(addprefix src/, main.c input_check.c input_parse.c)
+SRC		=	$(addprefix src/, main.c input_check.c input_parse.c rotate_ops.c swappush_ops.c tools.c)
 OBJ		=	$(SRC:.c=.o)
 
 HEADER	=	-Iinclude/ -Ilibft
