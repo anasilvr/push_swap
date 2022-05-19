@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 14:23:14 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/19 16:11:05 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,17 @@ void	free_table(char **table);
 void	error(void);
 
 /* Operations */
+void	swap_a(t_pushswap *src);
+void	swap_b(t_pushswap *src);
+void	swap_both(t_pushswap *src);
+void	push_a(t_pushswap *src);
+void	push_b(t_pushswap *src);
+void	rotate_a(t_pushswap *src);
+void	rotate_b(t_pushswap *src);
+void	rotate_both(t_pushswap *src);
+void	revrotate_a(t_pushswap *src);
+void	revrotate_b(t_pushswap *src);
+void	revrotate_both(t_pushswap *src);
+
 
 #endif
