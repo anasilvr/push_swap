@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 12:08:16 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 16:06:33 by anarodri         ###   ########.fr       */
+/*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
+/*   Updated: 2022/05/19 14:11:48 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	elemens_count(char **table)
 {
-	t_pushswap	piles;
+	int	i;
 
-	ft_bzero(&piles, sizeof(t_pushswap));
-	if (argc < 2)
-		return (0);
-	if (input_check(argc, argv) == 0)
-		error();
-	input_parse(argc, argv, &piles);
-/*	if (is_sorted(&piles.a))
-		return (0);
-	if (piles.a.total < 10)
-		small_sort(&piles);
-	else
-		big_sort(&piles);
-	free(&piles);
-*/
+	i = 0;
+	while (table[i])
+		i++;
+	return (i);
+}
+
+void	free_table(char **table)
+{
+	int	i;
+
+	i = 0;
+	while (table[i])
+	{
+		free(table[i]);
+		i++;
+	}
+	free(table);
+}
+
+void	error(void)
+{
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }
