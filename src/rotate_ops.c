@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:19:36 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 15:55:06 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:09:01 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	rotate_a(t_pushswap *src)
 	if (src->a.total >= 2)
 	{
 		rotate(&src->a);
-		ft_putchar_fd("ra", 1);
+		ft_putendl_fd("ra", 1);
 	}
 }
 

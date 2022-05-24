@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:19:40 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 15:48:28 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:09:21 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	swap_b(t_pushswap *src)
 {
 	if (src->b.total > 1)
 		swap(&src->b);
-	ft_putchar_fd("sb", 1);
+	ft_putendl_fd("sb", 1);
 }
 
 void	swap_both(t_pushswap *src)
@@ -49,5 +49,5 @@ void	swap_both(t_pushswap *src)
 		swap(&src->a);
 	if (src->b.total > 1)
 		swap(&src->b);
-	ft_putchar_fd("ss", 1);
+	ft_putendl_fd("ss", 1);
 }
