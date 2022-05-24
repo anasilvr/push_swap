@@ -6,13 +6,13 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 14:11:48 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:12:11 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	elemens_count(char **table)
+int	elements_count(char **table)
 {
 	int	i;
 
