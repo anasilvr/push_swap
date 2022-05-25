@@ -6,15 +6,24 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/11 14:47:57 by anarodri          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2022/06/14 22:50:34 by marvin           ###   ########.fr        #
+=======
+#    Updated: 2022/05/25 12:03:16 by anarodri         ###   ########.fr        #
+>>>>>>> 2f63431 (Organizing .c files)
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push_swap
 
+<<<<<<< HEAD
 SRCS 	= $(addprefix src/, clean_errors.c find_values.c input_check.c input_parse.c \
 				push_ops.c push_swap.c revrotate_ops.c rotate_ops.c small_sort.c \
 				swap_ops.c tools.c)
+=======
+SRCS 	= $(addprefix src/, find_values.c input_check.c input_parse.c push_ops.c \
+			push_swap.c revrotate_ops.c rotate_ops.c small_sort.c swap_ops.c tools.c)
+>>>>>>> 2f63431 (Organizing .c files)
 OBJS 	= ${SRCS:.c=.o}
 
 HEADER	= -Iinclude/ -Ilibft
