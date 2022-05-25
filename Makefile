@@ -6,55 +6,43 @@
 #    By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/11 14:47:57 by anarodri          #+#    #+#              #
-#    Updated: 2022/05/24 10:36:03 by anarodri         ###   ########.fr        #
+#    Updated: 2022/05/25 12:03:16 by anarodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME	= push_swap
 
-LIBFT		= ft
-LIBFTDIR	= libft
-MAKELIBFT	= @$(MAKE) -C $(LIBFTDIR)
+SRCS 	= $(addprefix src/, find_values.c input_check.c input_parse.c push_ops.c \
+			push_swap.c revrotate_ops.c rotate_ops.c small_sort.c swap_ops.c tools.c)
+OBJS 	= ${SRCS:.c=.o}
 
-SRC			= src
-INC			= include
-OBJ			= obj
+HEADER	= -Iinclude/ -Ilibft
 
-CFILES	=	main.c input_check.c input_parse.c tools.c push_ops.c revrotate_ops.c rotate_ops.c swap_ops.c
-HFILES	=	push_swap.h
+CC 		= gcc
+CFLAGS 	= -Wall -Wextra -Werror -g
 
-OFILES		= $(CFILES:.c=.o)
-SRCS		= $(addprefix $(SRC)/, $(CFILES))
-OBJS		= $(addprefix $(OBJ)/, $(OFILES))
-HEADERS		= $(addprefix $(INC)/, $(HFILES))
+.c.o:
+					@gcc ${CFLAGS} ${HEADER} -c $< -o $(<:.c=.o)
 
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
-RM			= rm -rf
+all:	${NAME}
 
-$(OBJ)/%.o:	$(SRC)/%.c
-			$(CC) $(CFLAGS) -I$(LIBFTDIR) -I$(INC) -I. -c $< -o $@
-
-$(NAME):	$(OBJ) $(OBJS)
-			$(MAKELIBFT)
-			$(CC) $(OBJS) -L$(LIBFTDIR) -l$(LIBFT) -o $(NAME)
-
-$(OBJ):
-			@mkdir -p $(OBJ)
-
-all:		$(NAME)
+${NAME}:	${OBJS}
+					@make re -C ./libft
+					@$(CC) ${OBJS} -L libft -l ft -o ${NAME}
+					@echo "\n\033[32m\033[1mPush_Swap Compiled!\n\033[0m"
+					@sleep 0.5
+					@printf "\033c"
+					@echo "\n\033[32m\033[1mPush_Swap Compiled!\n\033[0m"
 
 clean:
-			$(MAKELIBFT) fclean
-			@$(RM) $(OBJS)
+					@make clean -C ./libft
+					rm -f ${OBJS} ${OBJS_B}
 
-fclean:		clean
-			@$(RM) $(NAME)
+fclean: 	clean
+					@make fclean -C ./libft
+					@rm -f ${NAME}
+					@echo "\n\033[32m\033[1mClean Done!\n\033[0m"
 
 re:			fclean all
 
-norme:
-			$(MAKELIBFT) norme
-			norminette $(SRCS) $(HEADERS)
-
-.PHONY: all clean fclean re norme
+.PHONY: all clean fclean re

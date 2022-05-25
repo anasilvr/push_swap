@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:08:31 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 14:27:48 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:29:13 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ void	input_parse(int argc, char **argv, t_pushswap *piles)
 
 void	init_stacks(t_pushswap *piles, int count)
 {
-	piles->a.nbrs = malloc(sizeof(int) * count);
-	piles->b.nbrs = malloc(sizeof(int) * count);
-	piles->c.nbrs = malloc(sizeof(int) * count);
+	piles->a.nbrs = ft_calloc(count, sizeof(int));
+	piles->b.nbrs = ft_calloc(count, sizeof(int));
+	piles->c.nbrs = ft_calloc(count, sizeof(int));
+
 }
 
 /* Option 1: Multiple argvs Option 2: String of numbers as single argv. */
@@ -49,9 +50,9 @@ void	fill_stack(char **numbers, int count, t_stack *pile, int option)
 	if (option == 1)
 	{
 		i = 1;
-		while (numbers[i])
+		while (numbers[i] && count > 0)
 		{
-			pile->nbrs[count] = ft_atol(numbers[i]);
+			pile->nbrs[count - 1] = ft_atol(numbers[i]);
 			pile->total++;
 			i++;
 			count--;
@@ -60,9 +61,9 @@ void	fill_stack(char **numbers, int count, t_stack *pile, int option)
 	if (option == 2)
 	{
 		i = 0;
-		while (numbers[i])
+		while (numbers[i] && count > 0)
 		{
-			pile->nbrs[count] = ft_atol(numbers[i]);
+			pile->nbrs[count - 1] = ft_atol(numbers[i]);
 			pile->total++;
 			i++;
 			count--;

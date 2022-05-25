@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 16:21:35 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 12:00:23 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_pushswap
 int		input_check(int argc, char **argv);
 int		is_strargv_valid(char **argv);
 int		is_int_valid(char *str);
+int		is_sorted(t_stack *src);
 
 /* input_parse.c */
 void	input_parse(int argc, char **argv, t_pushswap *piles);
@@ -43,10 +44,21 @@ void	fill_stack(char **numbers, int count, t_stack *pile, int option);
 
 /* tools.c */
 // void	strargv_to_intarray(char **table, t_stack *data, int count);
-
 int		elements_count(char **table);
+int		define_median(t_pushswap *pile);
+void	print_array(int *nbrs);
+void	copy_stack(t_stack *src, t_stack *dst);
 void	free_table(char **table);
 void	error(void);
+
+/* find_values.c and small_sort.c*/
+int		find_smallest(t_pushswap *pile);
+int		find_largest(t_pushswap *pile);
+int		first(t_stack *src);
+int		last(t_stack *src);
+
+void	small_sort(t_pushswap *to_sort);
+void	sort_array_c(t_pushswap *pile);
 
 /* Operations */
 void	swap_a(t_pushswap *src);

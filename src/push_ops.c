@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:08:09 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 15:48:41 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 12:08:10 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static int	poptop(t_stack *src)
 static void	push(t_stack *src, int topush)
 {
 	src->nbrs[src->total] = topush;
-	src->total++;
 }
 
 void	push_a(t_pushswap *src)

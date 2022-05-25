@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/19 14:11:38 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 12:24:41 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,3 +104,18 @@ int	is_int_valid(char *str)
 	}
 	return (1);
 }
+
+int	is_sorted(t_stack *src)
+{
+	int	i;
+
+	i = 0;
+	while (i < src->total - 1)
+	{
+		if (src->nbrs[i] < src->nbrs[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+

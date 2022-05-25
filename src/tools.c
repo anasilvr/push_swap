@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/24 11:12:11 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 12:21:57 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,45 @@ int	elements_count(char **table)
 	while (table[i])
 		i++;
 	return (i);
+}
+
+int	define_median(t_pushswap *pile)
+{
+	int	median;
+
+	sort_array_c(pile);
+	if (pile->c.total % 2 == 0)
+		median = (pile->c.nbrs[pile->a.total / 2]
+				+ pile->c.nbrs[pile->a.total / 2 + 1]) / 2.0;
+	else
+		median = pile->c.nbrs[pile->a.total / 2];
+	return (median);
+}
+
+void	print_array(int *nbrs)
+{
+	int	i;
+
+	i = 0;
+	while (nbrs[i])
+	{
+		printf("%d\n", nbrs[i]);
+		i++;
+	}
+}
+
+void	copy_stack(t_stack *src, t_stack *dst)
+{
+	int	i;
+
+	i = 0;
+
+	while (i < src->total)
+	{
+		dst->nbrs[i] = src->nbrs[i];
+		dst->total++;
+		i++;
+	}
 }
 
 void	free_table(char **table)
