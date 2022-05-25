@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
 /*   Updated: 2022/06/15 11:33:47 by ana              ###   ########.fr       */
+=======
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
+/*   Updated: 2022/06/14 22:46:42 by marvin           ###   ########.fr       */
+>>>>>>> f310d5a (Parsing and Priting bugs correction)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +99,8 @@ int	is_ordered(t_stack *src)
 		i++;
 	}
 	return(1);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f310d5a (Parsing and Priting bugs correction)
