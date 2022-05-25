@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:08:31 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 11:29:13 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:23:49 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	init_stacks(t_pushswap *piles, int count)
 	piles->a.nbrs = ft_calloc(count, sizeof(int));
 	piles->b.nbrs = ft_calloc(count, sizeof(int));
 	piles->c.nbrs = ft_calloc(count, sizeof(int));
-
 }
 
 /* Option 1: Multiple argvs Option 2: String of numbers as single argv. */

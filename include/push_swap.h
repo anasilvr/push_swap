@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 12:00:23 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:16:52 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	fill_stack(char **numbers, int count, t_stack *pile, int option);
 // void	strargv_to_intarray(char **table, t_stack *data, int count);
 int		elements_count(char **table);
 int		define_median(t_pushswap *pile);
-void	print_array(int *nbrs);
+void	print_array(t_stack *stack);
 void	copy_stack(t_stack *src, t_stack *dst);
 void	free_table(char **table);
 void	error(void);

@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 12:21:57 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:17:08 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,13 @@ int	define_median(t_pushswap *pile)
 	return (median);
 }
 
-void	print_array(int *nbrs)
+void	print_array(t_stack *stack)
 {
 	int	i;
 
-	i = 0;
-	while (nbrs[i])
-	{
-		printf("%d\n", nbrs[i]);
-		i++;
-	}
+	i = -1;
+	while (++i < stack->total)
+		printf("%d\n", stack->nbrs[i]);
 }
 
 void	copy_stack(t_stack *src, t_stack *dst)
@@ -52,7 +49,6 @@ void	copy_stack(t_stack *src, t_stack *dst)
 	int	i;
 
 	i = 0;
-
 	while (i < src->total)
 	{
 		dst->nbrs[i] = src->nbrs[i];

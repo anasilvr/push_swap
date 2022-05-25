@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:09:56 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 11:55:55 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:44:28 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void	small_sort(t_pushswap *to_sort)
 
 	while (i < to_sort->a.total)
 	{
-		if (to_sort->a.nbrs[i] == to_sort->c.nbrs[i])
+		if (to_sort->a.nbrs[to_sort->a.total - i] == to_sort->c.nbrs[i])
 			i++;
-		if (to_sort->a.nbrs[i] >= median)
+		if (to_sort->a.nbrs[i] > median)
+		{
 			push_b(to_sort);
+		}
 		i++;
 	}
 }
@@ -49,7 +51,7 @@ void	sort_array_c(t_pushswap *pile)
 		while (j >= 0 && pile->c.nbrs[j] > key)
 		{
 			pile->c.nbrs[j + 1] = pile->c.nbrs[j];
-			j = j - 1;
+			j--;
 		}
 		pile->c.nbrs[j + 1] = key;
 		i++;

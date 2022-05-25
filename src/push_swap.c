@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:08:16 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 10:50:50 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:21:35 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	main(int argc, char **argv)
 	if (piles.a.total < 10)
 		small_sort(&piles);
 	printf("\n_____Stack A_____\n");
-	print_array(piles.a.nbrs);
+	print_array(&piles.a);
 	printf("\n_____Stack B_____\n");
-	print_array(piles.b.nbrs);
+	print_array(&piles.b);
 	printf("\n_____Stack C_____\n");
-	print_array(piles.c.nbrs);
+	print_array(&piles.c);
 //	print_array(piles.b.nbrs);
 /*	else
 		big_sort(&piles);

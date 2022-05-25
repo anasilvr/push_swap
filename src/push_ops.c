@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:08:09 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 12:08:10 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:45:21 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	poptop(t_stack *src)
 {
 	int	top;
 
-	top = src->nbrs[src->total];
+	top = src->nbrs[src->total - 1];
 	src->total--;
 	return (top);
 }
@@ -39,6 +39,7 @@ void	push_a(t_pushswap *src)
 	if (src->b.total > 0)
 	{
 		push(&src->a, poptop(&src->b));
+		src->a.total++;
 		ft_putendl_fd("pa", 1);
 	}
 }
@@ -48,6 +49,19 @@ void	push_b(t_pushswap *src)
 	if (src->a.total > 0)
 	{
 		push (&src->b, poptop(&src->a));
+		src->b.total++;
 		ft_putendl_fd("pb", 1);
 	}
 }
+
+/* Como juntar tudo numa função só passando src, dts e str à ser printada?
+void	push_ops(t_stack *src, t_stack *dst, char *str)
+{
+	if (src->total > 0)
+	{
+		push ((&dst), poptop(&src));
+		src->total--;
+		dst->total++;
+		ft_putstr_fd(str, 1);
+	}
+}*/

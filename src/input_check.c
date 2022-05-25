@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 12:24:41 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:28:26 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,19 @@ int	input_check(int argc, char **argv)
 		return (0);
 	if (argc > 2)
 	{
-		if (is_int_valid(argv[i]) == 0)
-			return (0);
-		while (argv[j])
+		while (argv[i])
 		{
-			if (ft_atol(argv[i]) == ft_atol(argv[j]))
+			if (is_int_valid(argv[i]) == 0)
 				return (0);
-			j++;
-		}
+			while (argv[j])
+			{
+				if (ft_atol(argv[i]) == ft_atol(argv[j]))
+					return (0);
+				j++;
+			}
 		i++;
 		j = i + 1;
+		}
 	}
 	return (1);
 }
@@ -69,7 +72,7 @@ int	is_strargv_valid(char **argv)
 	data = ft_split(argv[1], ' ');
 	while (data[i])
 	{
-		if (ft_isdigit((int)data[i]) == 0)
+		if (ft_isdigit(ft_atol(data[i]) == 0))
 		{
 			free_table(data);
 			return (0);
@@ -110,7 +113,7 @@ int	is_sorted(t_stack *src)
 	int	i;
 
 	i = 0;
-	while (i < src->total - 1)
+	while (i < src->total)
 	{
 		if (src->nbrs[i] < src->nbrs[i + 1])
 			return (0);
@@ -118,4 +121,3 @@ int	is_sorted(t_stack *src)
 	}
 	return (1);
 }
-
