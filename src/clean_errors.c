@@ -1,50 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_values.c                                      :+:      :+:    :+:   */
+/*   clean_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 11:55:37 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 15:53:15 by ana              ###   ########.fr       */
+/*   Created: 2022/06/14 15:57:03 by ana               #+#    #+#             */
+/*   Updated: 2022/06/14 15:57:30 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	find_smallest(t_ps *pile)
+void	free_table(char **table)
 {
 	int	i;
-	int	to_check;
 
 	i = 0;
-	to_check = pile->a->nbr[i];
-	while (i < pile->a->total)
+	while (table[i])
 	{
-		if (to_check > pile->a->nbr[i])
-			to_check = pile->a->nbr[i];
+		free(table[i]);
 		i++;
 	}
-	return (to_check);
+	free(table);
 }
 
-int	find_largest(t_ps *pile)
+void	error(void)
 {
-	int	i;
-	int	to_check;
-
-	i = 0;
-	to_check = pile->a->nbr[i];
-	while (i < pile->a->total)
-	{
-		if (to_check < pile->a->nbr[i])
-			to_check = pile->a->nbr[i];
-		i++;
-	}
-	return (to_check);
-}
-
-void	start_indexation(t_ps *a, t_ps *c)
-{
-
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }

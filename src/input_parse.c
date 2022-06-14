@@ -3,69 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   input_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:08:31 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 15:23:49 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/14 15:52:52 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	input_parse(int argc, char **argv, t_pushswap *piles)
-{
-	char	**tmp;
-	int		count;
-
-	if (argc == 2)
-	{
-		tmp = ft_split(argv[1], ' ');
-		count = elements_count(tmp);
-		init_stacks(piles, count);
-		fill_stack(tmp, count, &piles->a, 2);
-		free_table(tmp);
-	}
-	else
-	{
-		count = argc - 1;
-		init_stacks(piles, count);
-		fill_stack(argv, count, &piles->a, 1);
-	}
-}
-
-void	init_stacks(t_pushswap *piles, int count)
-{
-	piles->a.nbrs = ft_calloc(count, sizeof(int));
-	piles->b.nbrs = ft_calloc(count, sizeof(int));
-	piles->c.nbrs = ft_calloc(count, sizeof(int));
-}
-
-/* Option 1: Multiple argvs Option 2: String of numbers as single argv. */
-
-void	fill_stack(char **numbers, int count, t_stack *pile, int option)
+void	input_parse(int size, char **av, t_ps *piles)
 {
 	int	i;
 
-	if (option == 1)
+	i = 0;
+	while(i <= size)
 	{
-		i = 1;
-		while (numbers[i] && count > 0)
-		{
-			pile->nbrs[count - 1] = ft_atol(numbers[i]);
-			pile->total++;
-			i++;
-			count--;
-		}
+		piles->a->nbr[i] = ft_atoi(av[i]);
+		piles->a->total++;
+		i++;
 	}
-	if (option == 2)
+	i = 0;
+	while (i <= size)
 	{
-		i = 0;
-		while (numbers[i] && count > 0)
-		{
-			pile->nbrs[count - 1] = ft_atol(numbers[i]);
-			pile->total++;
-			i++;
-			count--;
-		}
+		piles->c->nbr[i] = piles->a->nbr[i];
+		piles->c->total++;
+		i++;
 	}
+	if (piles->a->total > 3)
+		start_indexation(piles->a, piles->c);
+
 }
+
+int	init_stacks(t_ps *piles, int size)
+{
+	piles->a = stack_alloc(size);
+	piles->b = stack_alloc(size);
+	piles->c = stack_alloc(size);
+	if (!piles->a || !piles->b || !piles->c)
+		return(false);
+	return (true);
+}
+
+t_stack	*stack_alloc(int size)
+{
+	t_stack *src;
+
+	src = ft_calloc(1, sizeof(t_stack));
+	if (!src)
+		return (NULL);
+	src->nbr = ft_calloc(size, sizeof(int));
+	if (!src->nbr)
+		return(free_struct(src));
+	src->total = 0;
+	return(src);
+}
+

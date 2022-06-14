@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:08:16 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 15:21:35 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/14 15:49:20 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 
 int	main(int argc, char **argv)
 {
-	t_pushswap	piles;
+	t_ps	piles;
+	int		size;
+	int		to_free;
 
-	ft_bzero(&piles, sizeof(t_pushswap));
+	to_free = false;
+	ft_bzero(&piles, sizeof(t_ps));
 	if (argc < 2)
-		return (0);
-	if (input_check(argc, argv) == 0)
+		exit (0);
+	argv++;
+	if (argc == 2)
+		argv = split_argv(argv[0], &to_free);
+	size = stack_size(argc, argv);
+	if (!input_check(argv) || !init_stacks(&piles, size))
 		error();
-	input_parse(argc, argv, &piles);
-	if (is_sorted(&piles.a))
-		return (0);
-	if (piles.a.total < 10)
-		small_sort(&piles);
+	input_parse(size, argv, &piles);
+
 	printf("\n_____Stack A_____\n");
-	print_array(&piles.a);
+	print_array(piles.a);
 	printf("\n_____Stack B_____\n");
-	print_array(&piles.b);
+	print_array(piles.b);
 	printf("\n_____Stack C_____\n");
-	print_array(&piles.c);
-//	print_array(piles.b.nbrs);
+	print_array(piles.c);
+//	print_array(piles.b.nbr);
 /*	else
 		big_sort(&piles);
 	free(&piles);*/

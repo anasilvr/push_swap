@@ -3,37 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 15:17:08 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/14 15:57:25 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	elements_count(char **table)
+int	stack_size(int argc, char *argv[])
 {
 	int	i;
 
 	i = 0;
-	while (table[i])
-		i++;
+	if (argc > 2)
+		i = argc - 1;
+	else
+	{
+		while (argv[i])
+			i++;
+	}
 	return (i);
 }
 
-int	define_median(t_pushswap *pile)
+char	**split_argv(char *av, int *to_free)
+{
+	char **nbrs;
+
+	nbrs = ft_split(av, ' ');
+	*to_free = true;
+	return(nbrs);
+}
+
+/*int	define_median(t_ps *pile)
 {
 	int	median;
 
 	sort_array_c(pile);
-	if (pile->c.total % 2 == 0)
-		median = (pile->c.nbrs[pile->a.total / 2]
-				+ pile->c.nbrs[pile->a.total / 2 + 1]) / 2.0;
+	if (pile->c->total % 2 == 0)
+		median = (pile->c->nbr[pile->a->total / 2]
+				+ pile->c->nbr[pile->a->total / 2 + 1]) / 2.0;
 	else
-		median = pile->c.nbrs[pile->a.total / 2];
+		median = pile->c->nbr[pile->a->total / 2];
 	return (median);
-}
+}*/
 
 void	print_array(t_stack *stack)
 {
@@ -41,7 +55,7 @@ void	print_array(t_stack *stack)
 
 	i = -1;
 	while (++i < stack->total)
-		printf("%d\n", stack->nbrs[i]);
+		printf("%d\n", stack->nbr[i]);
 }
 
 void	copy_stack(t_stack *src, t_stack *dst)
@@ -51,27 +65,8 @@ void	copy_stack(t_stack *src, t_stack *dst)
 	i = 0;
 	while (i < src->total)
 	{
-		dst->nbrs[i] = src->nbrs[i];
+		dst->nbr[i] = src->nbr[i];
 		dst->total++;
 		i++;
 	}
-}
-
-void	free_table(char **table)
-{
-	int	i;
-
-	i = 0;
-	while (table[i])
-	{
-		free(table[i]);
-		i++;
-	}
-	free(table);
-}
-
-void	error(void)
-{
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	exit(EXIT_FAILURE);
 }

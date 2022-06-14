@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 15:28:26 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/14 15:11:51 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,62 +33,29 @@
 
 #include "../include/push_swap.h"
 
-int	input_check(int argc, char **argv)
+int	input_check(char **av)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	j = 2;
-	if (argc == 2 && is_strargv_valid(argv) == 0)
-		return (0);
-	if (argc > 2)
-	{
-		while (argv[i])
-		{
-			if (is_int_valid(argv[i]) == 0)
-				return (0);
-			while (argv[j])
-			{
-				if (ft_atol(argv[i]) == ft_atol(argv[j]))
-					return (0);
-				j++;
-			}
-		i++;
-		j = i + 1;
-		}
-	}
-	return (1);
-}
-
-int	is_strargv_valid(char **argv)
-{
-	char	**data;
-	int		i;
-	int		j;
-
 	i = 0;
 	j = 1;
-	data = ft_split(argv[1], ' ');
-	while (data[i])
+	while (av[i])
 	{
-		if (ft_isdigit(ft_atol(data[i]) == 0))
+		if (!is_int_valid(av[i]))
+			return (false);
+		while (av[j])
 		{
-			free_table(data);
-			return (0);
-		}
-		while (data[j])
-		{
-			if (ft_atol(data[i]) == ft_atol(data[j]))
-				return (0);
+			if (ft_atol(av[i]) == ft_atol(av[j]))
+				return (false);
 			j++;
 		}
-		i++;
-		j = i + 1;
+	i++;
+	j = i + 1;
 	}
-	free_table(data);
-	return (1);
+	return (true);
 }
+
 
 int	is_int_valid(char *str)
 {
@@ -96,16 +63,16 @@ int	is_int_valid(char *str)
 
 	i = 0;
 	if (ft_atol(str) < INT_MIN || ft_atol(str) > INT_MAX)
-		return (0);
+		return (false);
 	if (str[0] == '-')
 		i++;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == 0)
-			return (0);
+		if (!ft_isdigit(str[i]))
+			return (false);
 		i++;
 	}
-	return (1);
+	return (true);
 }
 
 int	is_sorted(t_stack *src)
@@ -115,7 +82,7 @@ int	is_sorted(t_stack *src)
 	i = 0;
 	while (i < src->total)
 	{
-		if (src->nbrs[i] < src->nbrs[i + 1])
+		if (src->nbr[i] < src->nbr[i + 1])
 			return (0);
 		i++;
 	}

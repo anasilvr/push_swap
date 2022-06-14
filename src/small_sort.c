@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:09:56 by anarodri          #+#    #+#             */
-/*   Updated: 2022/05/25 15:44:28 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/14 14:35:26 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	small_sort(t_pushswap *to_sort)
+void	small_sort(t_ps *to_sort)
 {
 	int	i;
 	int	smallest;
@@ -25,11 +25,11 @@ void	small_sort(t_pushswap *to_sort)
 	copy_stack(&to_sort->a, &to_sort->c);
 	median = define_median(to_sort);
 
-	while (i < to_sort->a.total)
+	while (i < to_sort->a->total)
 	{
-		if (to_sort->a.nbrs[to_sort->a.total - i] == to_sort->c.nbrs[i])
+		if (to_sort->a->nbr[to_sort->a->total - i] == to_sort->c->nbr[i])
 			i++;
-		if (to_sort->a.nbrs[i] > median)
+		if (to_sort->a->nbr[i] > median)
 		{
 			push_b(to_sort);
 		}
@@ -37,23 +37,23 @@ void	small_sort(t_pushswap *to_sort)
 	}
 }
 
-void	sort_array_c(t_pushswap *pile)
+void	sort_array_c(t_ps *pile)
 {
 	int	i;
 	int	j;
 	int	key;
 
 	i = 1;
-	while (i < pile->c.total)
+	while (i < pile->c->total)
 	{
 		j = i - 1;
-		key = pile->c.nbrs[i];
-		while (j >= 0 && pile->c.nbrs[j] > key)
+		key = pile->c->nbr[i];
+		while (j >= 0 && pile->c->nbr[j] > key)
 		{
-			pile->c.nbrs[j + 1] = pile->c.nbrs[j];
+			pile->c->nbr[j + 1] = pile->c->nbr[j];
 			j--;
 		}
-		pile->c.nbrs[j + 1] = key;
+		pile->c->nbr[j + 1] = key;
 		i++;
 	}
 }
