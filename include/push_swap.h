@@ -3,17 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 11:32:59 by ana              ###   ########.fr       */
-=======
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 23:14:33 by marvin           ###   ########.fr       */
->>>>>>> f310d5a (Parsing and Priting bugs correction)
+/*   Updated: 2022/06/15 12:36:24 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +41,6 @@ int		input_parse(int size, char **av);
 void	init_stacks(int argc, char **argv, t_ps *piles);
 int		stack_size(char **tmp);
 void	fill_array(int size, char **args, t_stack *a);
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f310d5a (Parsing and Priting bugs correction)
 
 /* tools.c */
 void	copy_stack(t_stack *src, t_stack *dst);
@@ -61,10 +49,6 @@ void	set_index(t_ps *s);
 void	print_all_stack(t_ps *s);
 void	print_stack(t_stack *src);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f310d5a (Parsing and Priting bugs correction)
 /* clean_errors.c */
 void	free_table(char **table);
 void	error(void);
@@ -74,20 +58,14 @@ void	clean_n_exit(t_ps *piles);
 int	find_largest(t_stack *src);
 int	top(t_stack *s);
 int	bot(t_stack *s);
-<<<<<<< HEAD
+int	find_maxb(int count);
+int	find_n(t_stack *src);
 
 /* *_sort.c */
 void	small_sort(t_ps *to_sort);
 void 	sort_3(t_stack *a);
 void	sort_le_5(t_stack *a, t_stack *b);
-=======
-
-/* *_sort.c */
-void	small_sort(t_ps *to_sort);
-void sort_3(t_stack *a);
-void	sort_le_5(t_stack *a, t_stack *b);
-
->>>>>>> f310d5a (Parsing and Priting bugs correction)
+void	radix_sort(t_ps *piles);
 
 /* Operations */
 void	swap_a(t_stack *src);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_values.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:55:37 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 11:35:54 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/15 12:37:47 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,27 @@ int	top(t_stack *s)
 int	bot(t_stack *s)
 {
 	return (s->nbr[0]);
+}
+
+int	find_maxb(int count)
+{
+	int	i;
+	int	maxb;
+
+	i = count;
+	maxb = 0;
+
+	while (i >> maxb)
+		++maxb;
+	return(maxb);
+}
+
+int	find_n(t_stack *src)
+{
+	int i;
+
+	i = 0;
+	while (src->nbr[i] == 0)
+		i++;
+	return (src->nbr[i]);
 }
