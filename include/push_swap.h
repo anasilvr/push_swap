@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 12:36:24 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/15 14:08:21 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ typedef struct s_ps
 /* PROTOTYPES */
 
 /* input_check.c */
-int	valid_strargv(char **argv);
-int	valid_int(char *nb);
-int	is_ordered(t_stack *src);
+int		valid_strargv(char **argv);
+int		valid_int(char *nb);
+int		is_ordered(t_stack *src);
 
 /* input_parse.c */
 int		input_parse(int size, char **av);
@@ -55,15 +55,15 @@ void	error(void);
 void	clean_n_exit(t_ps *piles);
 
 /* find_values.c */
-int	find_largest(t_stack *src);
-int	top(t_stack *s);
-int	bot(t_stack *s);
-int	find_maxb(int count);
-int	find_n(t_stack *src);
+int		find_largest(t_stack *src);
+int		top(t_stack *s);
+int		bot(t_stack *s);
+int		find_maxb(int count);
+int		find_n(t_stack *src);
 
 /* *_sort.c */
 void	small_sort(t_ps *to_sort);
-void 	sort_3(t_stack *a);
+void	sort_3(t_stack *a);
 void	sort_le_5(t_stack *a, t_stack *b);
 void	radix_sort(t_ps *piles);
 

@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 12:38:27 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:52:33 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int	is_ordered(t_stack *src)
 	while (i < src->total - 1)
 	{
 		if (src->nbr[i + 1] > src->nbr[i])
-			return(0);
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }

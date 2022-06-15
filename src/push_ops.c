@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana.lrs>                              +#+  +:+       +#+        */
+/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:08:09 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 12:04:39 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/15 13:54:39 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** 	Do nothing if a is empty.
 */
 
-static int		pop(t_stack *src)
+static int	pop(t_stack *src)
 {
 	int	top;
 

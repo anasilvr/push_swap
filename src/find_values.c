@@ -6,27 +6,11 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:55:37 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 12:37:47 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:52:06 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-/*int	find_smallest(t_ps *pile)
-{
-	int	i;
-	int	to_check;
-
-	i = 0;
-	to_check = pile->a->nbr[i];
-	while (i < pile->a->total)
-	{
-		if (to_check > pile->a->nbr[i])
-			to_check = pile->a->nbr[i];
-		i++;
-	}
-	return (to_check);
-}*/
 
 int	find_largest(t_stack *src)
 {
@@ -61,15 +45,14 @@ int	find_maxb(int count)
 
 	i = count;
 	maxb = 0;
-
 	while (i >> maxb)
 		++maxb;
-	return(maxb);
+	return (maxb);
 }
 
 int	find_n(t_stack *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src->nbr[i] == 0)

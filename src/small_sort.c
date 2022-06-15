@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:09:56 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 12:06:07 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:55:37 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	small_sort(t_ps *to_sort)
 		sort_le_5(&to_sort->a, &to_sort->b);
 }
 
-void sort_3(t_stack *a)
+void	sort_3(t_stack *a)
 {
 	int	max;
 

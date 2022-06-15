@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:05:23 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 12:46:28 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:55:06 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	radix_sort(t_ps *to_sort)
 {
 	int	i;
-	int j;
-	int k;
-	int maxb;
-	int u;
+	int	j;
+	int	k;
+	int	maxb;
+	int	u;
 
 	i = -1;
 	j = 0;
@@ -38,5 +38,5 @@ void	radix_sort(t_ps *to_sort)
 		while (to_sort->b.total != 0)
 			push_a(&to_sort->a, &to_sort->b);
 	}
-	return;
+	return ;
 }

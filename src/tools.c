@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 11:36:21 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/15 13:57:35 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ void	print_all_stack(t_ps *s)
 void	print_stack(t_stack *src)
 {
 	int	i;
-	i = 0;
 
+	i = 0;
 	while (src->nbr[i])
 	{
 		printf("[%d] = %-10d\n", i, src->nbr[i]);
