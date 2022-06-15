@@ -6,7 +6,7 @@
 /*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 11:35:43 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/15 11:36:21 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ void	print_all_stack(t_ps *s)
 	while (j >= 0)
 	{
 		if (s->a.total > j)
-			printf("\033[1;32mA[%d] %-10d\033[1;0m ", i, s->a.nbr[j]);
+			printf("\033[32mA[%d]: %-10d\033[0m ", i, s->a.nbr[j]);
 		else
 			printf("%16c", ' ');
 		if (s->b.total > j)
-			printf("\033[1;31mB[%d]%-10d \033[1;0m    ", i, s->b.nbr[j]);
+			printf("\033[34mB[%d]: %-10d \033[0m    ", i, s->b.nbr[j]);
 		else
 			printf("%19c", ' ');
-		printf("\033[1;33mC[%d]%-10d\n\033[1;0m", i, s->c.nbr[j]);
+		printf("\033[33mC[%d]: %-10d\n\033[0m", i, s->c.nbr[j]);
 		j--;
 		i++;
 	}
