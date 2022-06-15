@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 23:14:33 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/15 10:27:51 by ana              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,12 @@ void	init_stacks(int argc, char **argv, t_ps *piles);
 int		stack_size(char **tmp);
 void	fill_array(int size, char **args, t_stack *a);
 
-
-
 /* tools.c */
 void	copy_stack(t_stack *src, t_stack *dst);
 void	sort_stack(t_stack *src);
 void	set_index(t_ps *s);
 void	print_all_stack(t_ps *s);
 void	print_stack(t_stack *src);
-
 
 /* clean_errors.c */
 void	free_table(char **table);
@@ -64,9 +61,8 @@ int	bot(t_stack *s);
 
 /* *_sort.c */
 void	small_sort(t_ps *to_sort);
-void sort_3(t_stack *a);
+void 	sort_3(t_stack *a);
 void	sort_le_5(t_stack *a, t_stack *b);
-
 
 /* Operations */
 void	swap_a(t_stack *src);
