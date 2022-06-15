@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   revrotate_ops.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:45:27 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 14:35:40 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 22:53:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,42 +22,40 @@
 
 static void	revrotate(t_stack *src)
 {
-	int	tmp;
 	int	i;
+	int	tmp;
 
 	i = 0;
-	tmp = src->nbr[i];
-	while (i < src->total)
+	tmp = src->nbr[0];
+	while (i < (src->total - 1))
 	{
 		src->nbr[i] = src->nbr[i + 1];
 		i++;
 	}
-	src->nbr[src->total] = tmp;
+	src->nbr[src->total - 1] = tmp;
 }
 
-void	revrotate_a(t_ps *src)
+void	revrotate_a(t_stack *src)
 {
-	if (src->a->total >= 2)
+	if (src->total >= 2)
 	{
-		revrotate(&src->a);
+		revrotate(src);
 		ft_putendl_fd("rra", 1);
 	}
 }
 
-void	revrotate_b(t_ps *src)
+void	revrotate_b(t_stack *src)
 {
-	if (src->b->total >= 2)
+	if (src->total >= 2)
 	{
-		revrotate(&src->b);
+		revrotate(src);
 		ft_putendl_fd("rrb", 1);
 	}
 }
 
 void	revrotate_both(t_ps *src)
 {
-	if (src->a->total >= 2)
-		revrotate(&src->a);
-	if (src->b->total >= 2)
-		revrotate(&src->b);
+	revrotate(&src->a);
+	revrotate(&src->b);
 	ft_putendl_fd("rrr", 1);
 }

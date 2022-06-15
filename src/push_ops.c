@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:08:09 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 14:35:40 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 22:52:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** 	Do nothing if a is empty.
 */
 
-static int	poptop(t_stack *src)
+static int		pop(t_stack *src)
 {
 	int	top;
 
@@ -32,36 +32,19 @@ static int	poptop(t_stack *src)
 static void	push(t_stack *src, int topush)
 {
 	src->nbr[src->total] = topush;
+	src->total++;
 }
 
-void	push_a(t_ps *src)
+void	push_a(t_stack *a, t_stack *b)
 {
-	if (src->b->total > 0)
-	{
-		push(&src->a, poptop(&src->b));
-		src->a->total++;
-		ft_putendl_fd("pa", 1);
-	}
+	if (b->total != 0)
+		push(a, pop(b));
+	ft_putendl_fd("pa", 1);
 }
 
-void	push_b(t_ps *src)
+void	push_b(t_stack *a, t_stack *b)
 {
-	if (src->a->total > 0)
-	{
-		push (&src->b, poptop(&src->a));
-		src->b->total++;
-		ft_putendl_fd("pb", 1);
-	}
+	if (a->total != 0)
+		push(b, pop(a));
+	ft_putendl_fd("pb", 1);
 }
-
-/* Como juntar tudo numa função só passando src, dts e str à ser printada?
-void	push_ops(t_stack *src, t_stack *dst, char *str)
-{
-	if (src->total > 0)
-	{
-		push ((&dst), poptop(&src));
-		src->total--;
-		dst->total++;
-		ft_putstr_fd(str, 1);
-	}
-}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:19:36 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 14:35:40 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 22:53:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 
 static void	rotate(t_stack *src)
 {
-	int	tmp;
 	int	i;
+	int	tmp;
 
-	i = src->total;
+	i = src->total - 1;
 	tmp = src->nbr[i];
 	while (i > 0)
 	{
@@ -35,29 +35,27 @@ static void	rotate(t_stack *src)
 	src->nbr[0] = tmp;
 }
 
-void	rotate_a(t_ps *src)
+void	rotate_a(t_stack *src)
 {
-	if (src->a->total >= 2)
+	if (src->total >= 2)
 	{
-		rotate(&src->a);
+		rotate(src);
 		ft_putendl_fd("ra", 1);
 	}
 }
 
-void	rotate_b(t_ps *src)
+void	rotate_b(t_stack *src)
 {
-	if (src->b->total >= 2)
+	if (src->total >= 2)
 	{
-		rotate(&src->b);
+		rotate(src);
 		ft_putendl_fd("rb", 1);
 	}
 }
 
-void	rotate_both(t_ps *src)
+void	rotate_both(t_ps *piles)
 {
-	if (src->a->total >= 2)
-		rotate(&src->a);
-	if (src->b->total >= 2)
-		rotate(&src->b);
+	rotate(&piles->a);
+	rotate(&piles->b);
 	ft_putendl_fd("rr", 1);
 }

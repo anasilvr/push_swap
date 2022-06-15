@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 15:57:03 by ana               #+#    #+#             */
-/*   Updated: 2022/06/14 15:57:30 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 22:08:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,15 @@ void	error(void)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
+}
+
+void	clean_n_exit(t_ps *piles)
+{
+	free(piles->a.nbr);
+	free(&piles->a);
+	free(piles->b.nbr);
+	free(&piles->b);
+	free(piles->c.nbr);
+	free(&piles->c);
+	exit (0);
 }

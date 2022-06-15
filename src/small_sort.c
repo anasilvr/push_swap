@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:09:56 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 14:35:26 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 23:20:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,45 @@
 
 void	small_sort(t_ps *to_sort)
 {
-	int	i;
-	int	smallest;
-	int	largest;
-	int	median;
-
-	i = 0;
-	smallest = find_smallest(to_sort);
-	largest = find_largest(to_sort);
-	copy_stack(&to_sort->a, &to_sort->c);
-	median = define_median(to_sort);
-
-	while (i < to_sort->a->total)
-	{
-		if (to_sort->a->nbr[to_sort->a->total - i] == to_sort->c->nbr[i])
-			i++;
-		if (to_sort->a->nbr[i] > median)
-		{
-			push_b(to_sort);
-		}
-		i++;
-	}
+	if (to_sort->a.total == 2)
+		swap_a(&to_sort->a);
+	else if (to_sort->a.total == 3)
+		sort_3(&to_sort->a);
+	else
+		sort_le_5(&to_sort->a, &to_sort->b);
 }
 
-void	sort_array_c(t_ps *pile)
+void sort_3(t_stack *a)
+{
+	int	max;
+
+	max = find_largest(a);
+	if (max == a->nbr[1])
+		revrotate_a(a);
+	else if (max == a->nbr[2])
+		rotate_a(a);
+	if (!is_ordered(a))
+		swap_a(a);
+}
+
+void	sort_le_5(t_stack *a, t_stack *b)
 {
 	int	i;
-	int	j;
-	int	key;
 
-	i = 1;
-	while (i < pile->c->total)
+	if (a->total == 5)
+		i = (a->total / 2) + 1;
+	else
+		i = a->total / 2;
+	while (a->total > 3)
 	{
-		j = i - 1;
-		key = pile->c->nbr[i];
-		while (j >= 0 && pile->c->nbr[j] > key)
-		{
-			pile->c->nbr[j + 1] = pile->c->nbr[j];
-			j--;
-		}
-		pile->c->nbr[j + 1] = key;
-		i++;
+		if (top(a) < i - 1)
+			push_b(a, b);
+		else
+			rotate_a(a);
 	}
+	sort_3(a);
+	while (b->total > 0)
+		push_a(a, b);
+	if (top(a) != 0)
+		swap_a(a);
 }

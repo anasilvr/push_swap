@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   find_values.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:55:37 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 15:53:15 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 23:07:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	find_smallest(t_ps *pile)
+/*int	find_smallest(t_ps *pile)
 {
 	int	i;
 	int	to_check;
@@ -26,25 +26,30 @@ int	find_smallest(t_ps *pile)
 		i++;
 	}
 	return (to_check);
-}
+}*/
 
-int	find_largest(t_ps *pile)
+int	find_largest(t_stack *src)
 {
 	int	i;
-	int	to_check;
+	int	largest;
 
 	i = 0;
-	to_check = pile->a->nbr[i];
-	while (i < pile->a->total)
+	largest = src->nbr[0];
+	while (i < src->total)
 	{
-		if (to_check < pile->a->nbr[i])
-			to_check = pile->a->nbr[i];
+		if (src->nbr[i] > largest)
+			largest = src->nbr[i];
 		i++;
 	}
-	return (to_check);
+	return (largest);
 }
 
-void	start_indexation(t_ps *a, t_ps *c)
+int	top(t_stack *s)
 {
+	return (s->nbr[s->total - 1]);
+}
 
+int	bot(t_stack *s)
+{
+	return (s->nbr[0]);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:19:40 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 14:35:40 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 22:54:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,32 @@
 
 static void	swap(t_stack *src)
 {
+	int	i;
 	int	tmp;
 
-	tmp = src->nbr[src->total];
-	src->nbr[src->total] = src->nbr[src->total - 1];
-	src->nbr[src->total - 1] = tmp;
+	i = src->total - 1;
+	tmp = src->nbr[i];
+	src->nbr[i] = src->nbr[i - 1];
+	src->nbr[i - 1] = tmp;
 }
 
-void	swap_a(t_ps *src)
+void	swap_a(t_stack *src)
 {
-	if (src->a->total > 1)
-		swap(&src->a);
+	if (src->total > 2)
+		swap(src);
 	ft_putendl_fd("sa", 1);
 }
 
-void	swap_b(t_ps *src)
+void	swap_b(t_stack *src)
 {
-	if (src->b->total > 1)
-		swap(&src->b);
+	if (src->total > 2)
+		swap(src);
 	ft_putendl_fd("sb", 1);
 }
 
 void	swap_both(t_ps *src)
 {
-	if (src->a->total > 1)
-		swap(&src->a);
-	if (src->b->total > 1)
-		swap(&src->b);
+	swap(&src->a);
+	swap(&src->b);
 	ft_putendl_fd("ss", 1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ana <ana@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:11:30 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 15:11:51 by ana              ###   ########.fr       */
+/*   Updated: 2022/06/14 22:46:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,58 +33,63 @@
 
 #include "../include/push_swap.h"
 
-int	input_check(char **av)
+int	valid_strargv(char **argv)
 {
-	int	i;
-	int	j;
+	char	**tmp;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 1;
-	while (av[i])
+	tmp = ft_split(argv[1], ' ');
+	while (tmp[i])
 	{
-		if (!is_int_valid(av[i]))
-			return (false);
-		while (av[j])
+		if (!valid_int(tmp[i]))
 		{
-			if (ft_atol(av[i]) == ft_atol(av[j]))
-				return (false);
+			free_table(tmp);
+			return (0);
+		}
+		while (tmp[j])
+		{
+			if (ft_atol(tmp[i]) == ft_atol(tmp[j]))
+				return (0);
 			j++;
 		}
-	i++;
-	j = i + 1;
+		i++;
+		j = i + 1;
 	}
-	return (true);
+	free_table(tmp);
+	return (i);
 }
 
-
-int	is_int_valid(char *str)
+int	valid_int(char *nb)
 {
 	int	i;
 
 	i = 0;
-	if (ft_atol(str) < INT_MIN || ft_atol(str) > INT_MAX)
-		return (false);
-	if (str[0] == '-')
+	if (ft_atol(nb) < INT_MIN || ft_atol(nb) > INT_MAX)
+		return (0);
+	if (nb[0] == '-')
 		i++;
-	while (str[i])
+	while (nb[i])
 	{
-		if (!ft_isdigit(str[i]))
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
-int	is_sorted(t_stack *src)
-{
-	int	i;
-
-	i = 0;
-	while (i < src->total)
-	{
-		if (src->nbr[i] < src->nbr[i + 1])
+		if (nb[i] < '0' || nb[i] > '9')
 			return (0);
 		i++;
 	}
 	return (1);
+}
+
+int	is_ordered(t_stack *src)
+{
+	int	i;
+
+	i = 0;
+	while (i < src->total - 1)
+	{
+		if (src->nbr[i + 1] > src->nbr[i])
+			return(0);
+		i++;
+	}
+	return(1);
 }
