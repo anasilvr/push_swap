@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/14 23:17:46 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/15 00:03:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,29 +47,29 @@ void	sort_stack(t_stack *to_sort)
 
 void	set_index(t_ps *s)
 {
-	int	i;
-	int	j;
-	int	k;
-	int	c;
+	int	count_a;
+	int	index_a;
+	int	count_c;
+	int	index_c;
 
-	i = s->a.total;
-	j = 0;
-	while (i > 0)
+	count_a = s->a.total;
+	index_a = 0;
+	while (count_a > 0)
 	{
-		c = s->c.total;
-		k = 0;
-		while (c > 0)
+		count_c = s->c.total;
+		index_c = 0;
+		while (count_c > 0)
 		{
-			if (s->a.nbr[j] == s->c.nbr[k])
+			if (s->a.nbr[index_a] == s->c.nbr[index_c])
 			{
-				s->a.nbr[j] = (s->c.total - k - 1);
+				s->a.nbr[index_a] = (s->c.total - index_c - 1);
 				break ;
 			}
-			k++;
-			c--;
+			index_c++;
+			count_c--;
 		}
-		i--;
-		j++;
+		count_a--;
+		index_a++;
 	}
 }
 
