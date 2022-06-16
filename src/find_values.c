@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:55:37 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 13:52:06 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:04:56 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,14 @@ int	bot(t_stack *s)
 	return (s->nbr[0]);
 }
 
-int	find_maxb(int count)
+int	find_maxb(int max)
 {
 	int	i;
 	int	maxb;
 
-	i = count;
+	i = max;
 	maxb = 0;
-	while (i >> maxb)
+	while (i >> maxb != 0)
 		++maxb;
 	return (maxb);
-}
-
-int	find_n(t_stack *src)
-{
-	int	i;
-
-	i = 0;
-	while (src->nbr[i] == 0)
-		i++;
-	return (src->nbr[i]);
 }

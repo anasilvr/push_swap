@@ -6,37 +6,37 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:05:23 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 13:55:06 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:07:05 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	radix_sort(t_ps *to_sort)
+void	radix_sort(t_ps *s)
 {
+	int	size;
+	int	maxb;
 	int	i;
 	int	j;
-	int	k;
-	int	maxb;
-	int	u;
+	int	nb;
 
+	size = s->a.total;
+	maxb = find_maxb(s->c.total - 1);
 	i = -1;
 	j = 0;
-	u = 0;
-	maxb = find_maxb(to_sort->c.total);
 	while (++i < maxb)
 	{
-		while (j++ < to_sort->c.total)
+		while (j++ < size)
 		{
-			k = find_n(&to_sort->a);
-			if (((k >> i) & 1) == 0)
-				push_b(&to_sort->a, &to_sort->b);
+			nb = top(&s->a);
+			if (((nb >> i) & 1) == 0)
+				push_b(&s->a, &s->b);
 			else
-				rotate_a(&to_sort->a);
+				rotate_a(&s->a);
 		}
 		j = 0;
-		while (to_sort->b.total != 0)
-			push_a(&to_sort->a, &to_sort->b);
+		while (s->b.total > 0)
+			push_a(&s->a, &s->b);
 	}
 	return ;
 }

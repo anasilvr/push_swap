@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:08:16 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 12:40:50 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:08:54 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 	init_stacks(argc, argv, &piles);
 	printf("BEFORE\n");
 	print_all_stack(&piles);
+	printf("___________________\n");
 	if (is_ordered(&piles.a))
 		return (0);
 	printf("\n[Sorting begins...]\n");
@@ -32,7 +33,8 @@ int	main(int argc, char **argv)
 	else
 		radix_sort(&piles);
 	printf("[End of Sorting]\n");
+	printf("___________________\n");
 	printf("\nAFTER\n");
 	print_all_stack(&piles);
-//	clean_n_exit(&piles);
+	clean_n_exit(&piles);
 }

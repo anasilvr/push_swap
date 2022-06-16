@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 15:57:03 by ana               #+#    #+#             */
-/*   Updated: 2022/06/15 13:50:23 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:06:04 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ void	error(void)
 void	clean_n_exit(t_ps *piles)
 {
 	free(piles->a.nbr);
-	free(&piles->a);
 	free(piles->b.nbr);
-	free(&piles->b);
 	free(piles->c.nbr);
-	free(&piles->c);
 	exit (0);
 }

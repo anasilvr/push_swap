@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 14:08:21 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/16 15:07:48 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,13 @@ void	clean_n_exit(t_ps *piles);
 int		find_largest(t_stack *src);
 int		top(t_stack *s);
 int		bot(t_stack *s);
-int		find_maxb(int count);
-int		find_n(t_stack *src);
+int		find_maxb(int max);
 
 /* *_sort.c */
 void	small_sort(t_ps *to_sort);
 void	sort_3(t_stack *a);
 void	sort_le_5(t_stack *a, t_stack *b);
-void	radix_sort(t_ps *piles);
+void	radix_sort(t_ps *s);
 
 /* Operations */
 void	swap_a(t_stack *src);
