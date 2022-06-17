@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/16 15:07:48 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/17 16:28:23 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ void	fill_array(int size, char **args, t_stack *a);
 void	copy_stack(t_stack *src, t_stack *dst);
 void	sort_stack(t_stack *src);
 void	set_index(t_ps *s);
-void	print_all_stack(t_ps *s);
-void	print_stack(t_stack *src);
 
 /* clean_errors.c */
 void	free_table(char **table);
 void	error(void);
+int		clean_n_return(char **table, int return_value);
 void	clean_n_exit(t_ps *piles);
 
 /* find_values.c */

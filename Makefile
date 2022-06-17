@@ -6,7 +6,7 @@
 #    By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 12:08:16 by anarodri          #+#    #+#              #
-#    Updated: 2022/06/15 12:39:52 by anarodri         ###   ########.fr        #
+#    Updated: 2022/06/16 19:09:09 by anarodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ ${NAME}:	${OBJS}
 					@$(CC) ${OBJS} -L libft -l ft -o ${NAME}
 					@echo "\n\033[32m\033[1mPush_Swap Compiled!\n\033[0m"
 					@sleep 0.5
-					@printf "\033c"
+					@echo "\033c"
 					@echo "\n\033[32m\033[1mPush_Swap Compiled!\n\033[0m"
 
 clean:

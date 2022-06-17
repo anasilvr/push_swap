@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:10:46 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/15 13:57:35 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/16 19:08:34 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,40 +70,5 @@ void	set_index(t_ps *s)
 		}
 		count_a--;
 		index_a++;
-	}
-}
-
-void	print_all_stack(t_ps *s)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = s->c.total - 1;
-	while (j >= 0)
-	{
-		if (s->a.total > j)
-			printf("\033[32mA[%d]: %-10d\033[0m ", i, s->a.nbr[j]);
-		else
-			printf("%16c", ' ');
-		if (s->b.total > j)
-			printf("\033[34mB[%d]: %-10d \033[0m    ", i, s->b.nbr[j]);
-		else
-			printf("%19c", ' ');
-		printf("\033[33mC[%d]: %-10d\n\033[0m", i, s->c.nbr[j]);
-		j--;
-		i++;
-	}
-}
-
-void	print_stack(t_stack *src)
-{
-	int	i;
-
-	i = 0;
-	while (src->nbr[i])
-	{
-		printf("[%d] = %-10d\n", i, src->nbr[i]);
-		i++;
 	}
 }

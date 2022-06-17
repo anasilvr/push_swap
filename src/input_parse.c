@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:08:31 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/16 15:40:46 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/17 16:51:25 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	init_stacks(int argc, char **argv, t_ps *piles)
 	}
 	copy_stack(&piles->a, &piles->c);
 	sort_stack(&piles->c);
-	print_stack(&piles->c);
 	set_index(piles);
 }
 

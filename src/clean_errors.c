@@ -6,7 +6,7 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 15:57:03 by ana               #+#    #+#             */
-/*   Updated: 2022/06/16 18:06:04 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/17 16:28:53 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ void	error(void)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
+}
+
+int	clean_n_return(char **table, int return_value)
+{
+	free_table(table);
+	return (return_value);
 }
 
 void	clean_n_exit(t_ps *piles)

@@ -6,9 +6,19 @@
 /*   By: anarodri <anarodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 12:05:23 by anarodri          #+#    #+#             */
-/*   Updated: 2022/06/16 18:07:05 by anarodri         ###   ########.fr       */
+/*   Updated: 2022/06/17 17:24:26 by anarodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* LSD -> MST. Reads digits from left to right.
+** Worst case: all elements have the same number of digits except one.
+** Best case: all elements have the same number of digits.
+**
+** Every time the digit evaluated is a 0, push_b. (0 & 1 == 0)
+** Else, rotate_a, and test next element.
+** When every element on Stack A has been tested (j < size is false),
+** reintegrate the stacks (push_a until b.total = 0) and test next digit.
+*/
 
 #include "../include/push_swap.h"
 
