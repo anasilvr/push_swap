@@ -1,7 +1,7 @@
 # Push_Swap
 Sorting data on a stack with a limited set of instructions.
 
-📄 [Subject PDF v. 6]()
+📄 [Subject PDF v. 6](https://github.com/anasilvr/push_swap/blob/master/en.subject.pdf)
 
 ## Makefile 🔨
 | Command | Usage |
